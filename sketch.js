@@ -13,7 +13,9 @@ var bg = "sprites/bg1.png";
 var score = 0;
 
 function preload() {
-    backgroundImg = loadImage("sprites/bg.png");
+    getBackgroundImg ();
+
+
 }
 
 function setup(){
@@ -47,10 +49,10 @@ function setup(){
 }
 
 function draw(){
-   
+       if (backgroundImg);
         background(backgroundImg);
     
-        
+      
     
     Engine.update(engine);
     //strokeWeight(4);
@@ -103,7 +105,11 @@ async function getBackgroundImg(){
     var hour = datetime.slice(11,13);
     
     if(hour>=06 && hour<=19){
-        bg = "";
+        bg = "sprites/bg1.png";
     }
-    
+    else {
+        bg ="sprites/bg2.jpg";
+    }
+    backgroundImg = loadImage("bg.png");
+    console.log(backgroundImg);
 }
